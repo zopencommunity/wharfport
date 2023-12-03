@@ -1,6 +1,12 @@
-export ZOPEN_GIT_URL="https://github.com/ZOSOpenTools/wharf.git"
-export ZOPEN_GIT_DEPS="comp_go"
-export ZOPEN_TYPE="GIT"
+# bump: wharf-version /WHARF_VERSION="(.*)"/ https://github.com/ZOSOpenTools/wharf.git|semver:*
+WHARF_VERSION="1.1.0"
+
+export ZOPEN_STABLE_URL="https://github.com/ZOSOpenTools/wharf.git"
+export ZOPEN_STABLE_DEPS="comp_go"
+export ZOPEN_STABLE_TAG="v${WHARF_VERSION}"
+export ZOPEN_DEV_URL="https://github.com/ZOSOpenTools/wharf.git"
+export ZOPEN_DEV_DEPS="comp_go"
+export ZOPEN_BUILD_LINE="DEV"
 export ZOPEN_COMP="GO"
 
 export ZOPEN_CONFIGURE="skip"
@@ -26,6 +32,5 @@ zopen_install()
 
 zopen_get_version()
 {
-  # TODO: Get version from wharf when "--version" functionality is added
-  echo "1.0.0"
+  echo "$WHARF_VERSION"
 }
