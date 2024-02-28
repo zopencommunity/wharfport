@@ -1,5 +1,5 @@
 # bump: wharf-version /WHARF_VERSION="(.*)"/ https://github.com/ZOSOpenTools/wharf.git|semver:*
-WHARF_VERSION="1.1.0"
+WHARF_VERSION="1.1.1"
 
 export ZOPEN_STABLE_URL="https://github.com/ZOSOpenTools/wharf.git"
 export ZOPEN_STABLE_DEPS="comp_go"
