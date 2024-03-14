@@ -5,7 +5,7 @@ export ZOPEN_STABLE_URL="https://github.com/ZOSOpenTools/wharf.git"
 export ZOPEN_STABLE_DEPS="comp_go"
 export ZOPEN_STABLE_TAG="v${WHARF_VERSION}"
 export ZOPEN_DEV_URL="https://github.com/ZOSOpenTools/wharf.git"
-export ZOPEN_DEV_DEPS="comp_go"
+export ZOPEN_DEV_DEPS="comp_go grep"
 export ZOPEN_BUILD_LINE="DEV"
 export ZOPEN_COMP="GO"
 
@@ -13,8 +13,30 @@ export ZOPEN_CONFIGURE="skip"
 export ZOPEN_MAKE="go"
 export ZOPEN_MAKE_OPTS="build"
 export ZOPEN_MAKE_MINIMAL="yes"
-export ZOPEN_CHECK="skip"
 export ZOPEN_INSTALL="zopen_install"
+export ZOPEN_CHECK="zopen_check"
+
+zopen_check()
+{
+  go test -v -timeout=9999s  ./...
+}
+
+
+zopen_check_results()
+{
+  chk="$1/$2_check.log"
+
+  expectedtotalTests=$(grep -c "=== RUN" ${chk})
+  successes=$(grep -c "\--- PASS" ${chk})
+  failures=$(grep -c "\--- FAIL" ${chk})
+  skips=$(grep -c "\--- SKIP" ${chk})
+
+  echo "actualFailures:$failures"
+  echo "totalTests:$(($successes + $skips))"
+  echo "expectedFailures:0"
+  echo "expectedTotalTests:$expectedtotalTests"
+}
+
 
 zopen_init()
 {
