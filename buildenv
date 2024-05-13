@@ -49,7 +49,7 @@ zopen_init()
 
 zopen_install()
 {
-  go install
+  go install -ldflags="-X 'main.Version=${WHARF_VERSION}'"
 }
 
 zopen_get_version()
