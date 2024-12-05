@@ -3,10 +3,10 @@ WHARF_VERSION="1.2.1"
 
 export ZOPEN_STABLE_URL="https://github.com/ZOSOpenTools/wharf.git"
 export ZOPEN_CATEGORIES="utilities"
-export ZOPEN_STABLE_DEPS="comp_go"
+export ZOPEN_STABLE_DEPS="check_go"
 export ZOPEN_STABLE_TAG="v${WHARF_VERSION}"
 export ZOPEN_DEV_URL="https://github.com/ZOSOpenTools/wharf.git"
-export ZOPEN_DEV_DEPS="comp_go grep"
+export ZOPEN_DEV_DEPS="check_go grep"
 export ZOPEN_BUILD_LINE="DEV"
 export ZOPEN_COMP="GO"
 
